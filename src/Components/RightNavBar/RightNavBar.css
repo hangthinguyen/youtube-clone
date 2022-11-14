@@ -1,0 +1,43 @@
+.right-nav-bar {
+    display: flex;
+    align-items: center;
+}
+
+.sign-in-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    height: 34px;
+    padding: 0 10px;
+}
+
+.sign-in-btn:hover {
+    background-color: #def1ff;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.settings {
+    font-size: 24px;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.settings:hover {
+    cursor: pointer;
+}
+
+.user-icon {
+    font-size: 24px;
+    color: #065fd4;
+}
+
+.sign-in-text {
+    color: #065fd4;
+    font-size: 14px;
+    margin: 0;
+    white-space: nowrap;
+}

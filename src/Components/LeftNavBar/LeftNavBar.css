@@ -1,0 +1,46 @@
+.menu-bar {
+    font-size: 24px;
+}
+
+.menu-bar-container {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.menu-bar-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.left-nav-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+.youtube-icon-container {
+    padding: 0px 14px 0px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.youtube-icon-container:hover {
+    cursor: pointer;
+}
+
+.youtube-icon-1 {
+    font-size: 30px;
+}
+
+.youtube-icon-1 {
+    color: red;
+}
+
+.youtube-icon-2 {
+    letter-spacing: -1.5px;
+    margin: 0;
+    font-size: 22px;
+}
