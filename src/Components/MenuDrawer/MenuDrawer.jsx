@@ -3,15 +3,15 @@ import LeftNavBar from '../LeftNavBar/LeftNavBar';
 import SideBarMenu from '../SideBarMenu/SideBarMenu';
 import './MenuDrawer.css';
 
-const MenuDrawer = ({ isdraweropen }) => {
+const MenuDrawer = ({ onClick }) => {
   return (
     <Drawer
       anchor='left'
       variant='temporary'
-      open={isdraweropen}
+      // open={isdraweropen}
     >
         <Box width='240px' textAlign='center'>
-            <LeftNavBar />
+            <LeftNavBar onClick={onClick} />
             <SideBarMenu />
         </Box>
     </Drawer>

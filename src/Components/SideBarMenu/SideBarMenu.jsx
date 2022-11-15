@@ -1,17 +1,19 @@
 
+import { Stack } from '@mui/material';
+import MiniSideBar from '../MiniSideBar/MiniSideBar';
 import SideBarPart1 from '../SideBarPart1/SideBarPart1';
 import './SideBarMenu.css';
 
 const SideBarMenu = ({ isdraweropen, sideBarPart1Items }) => {
   return (
-    <div
+    <Stack
         className='side-bar-menu-container'
-        style={{
-            display: isdraweropen ? 'flex' : 'none'
-        }}
+        // style={{
+        //     display: isdraweropen ? 'flex' : 'none'
+        // }}
     >
-        <SideBarPart1 sideBarPart1Items={sideBarPart1Items}/>
-    </div>
+        {isdraweropen ? <SideBarPart1 sideBarPart1Items={sideBarPart1Items}/> : <MiniSideBar/> }
+    </Stack>
   )
 }
 

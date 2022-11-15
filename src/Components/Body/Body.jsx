@@ -8,7 +8,7 @@ const Body = ({ isdraweropen, onClick, sideBarPart1Items }) => {
     <div className='body'>
         <NavBar onClick={onClick} />
         <MainContent isdraweropen={isdraweropen} sideBarPart1Items={sideBarPart1Items} />
-        <MenuDrawer isdraweropen={isdraweropen} />
+        <MenuDrawer isdraweropen={isdraweropen} onClick={onClick} />
     </div>
   )
 }
