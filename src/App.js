@@ -6,37 +6,34 @@ import './App.css';
 function App() {
   const [isDrawerOpen, setDrawerOpen] = useState(false)
 
-  const [items, setItems] = useState([
+  const [sideBarPart1Items] = useState([
     {
       id: Math.random() * 10000,
       icon: <HomeIcon />,
-      name: 'Home'
+      name: 'Home',
+      link: 'https://www.youtube.com/'
     },
     {
       id: Math.random() * 10000,
       icon: <HomeIcon />,
-      name: 'Home'
+      name: 'Home',
+      link: 'https://www.youtube.com/'
     },
     {
       id: Math.random() * 10000,
       icon: <HomeIcon />,
-      name: 'Home'
-    },
-    {
-      id: Math.random() * 10000,
-      icon: <HomeIcon />,
-      name: 'Home'
+      name: 'Home',
+      link: 'https://www.youtube.com/'
     },
   ])
 
   const handleDrawer = useCallback(() => {
     setDrawerOpen(!isDrawerOpen)
-    console.log(!isDrawerOpen)
   }, [isDrawerOpen]);
 
   return (
     <div className="App">
-      <Body isdraweropen={isDrawerOpen} onClick={handleDrawer} />
+      <Body isdraweropen={isDrawerOpen} onClick={handleDrawer} sideBarPart1Items={sideBarPart1Items} />
     </div>
   );
 }

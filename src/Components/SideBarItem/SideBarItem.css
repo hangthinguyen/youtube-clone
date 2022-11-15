@@ -1,0 +1,16 @@
+.side-bar-item-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 12px;
+    width: 204px;
+}
+
+.side-bar-item-container:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
