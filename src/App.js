@@ -124,9 +124,7 @@ function App() {
   ])
 
   const handleDrawer = useCallback((e) => {
-    if (window.innerWidth < 720) {
       setDrawerOpen(!isDrawerOpen)
-    }
   }, [isDrawerOpen]);
 
   return (

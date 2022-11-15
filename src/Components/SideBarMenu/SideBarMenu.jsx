@@ -6,13 +6,8 @@ import './SideBarMenu.css';
 
 const SideBarMenu = ({ isdraweropen, sideBarPart1Items }) => {
   return (
-    <Stack
-        className='side-bar-menu-container'
-        // style={{
-        //     display: isdraweropen ? 'flex' : 'none'
-        // }}
-    >
-        {isdraweropen ? <SideBarPart1 sideBarPart1Items={sideBarPart1Items}/> : <MiniSideBar/> }
+    <Stack className='side-bar-menu-container'>
+        {window.innerWidth > 720 && !isdraweropen ? <SideBarPart1 sideBarPart1Items={sideBarPart1Items}/> : <MiniSideBar/> }
     </Stack>
   )
 }

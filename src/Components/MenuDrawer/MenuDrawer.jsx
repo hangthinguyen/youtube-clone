@@ -8,7 +8,7 @@ const MenuDrawer = ({ onClick, isdraweropen }) => {
     <Drawer
       anchor='left'
       variant='temporary'
-      open={isdraweropen}
+      open={window.innerWidth < 720 && isdraweropen}
     >
         <Box width='240px' textAlign='center'>
             <LeftNavBar onClick={onClick} />
