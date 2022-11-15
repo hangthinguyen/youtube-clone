@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [isDrawerOpen, setDrawerOpen] = useState(false)
 
-  const [sideBarPart1Items] = useState([
+  const [sideBarItems] = useState([
     {
       id: Math.random() * 10000,
       icon: <HomeIcon />,
@@ -129,7 +129,7 @@ function App() {
 
   return (
     <div className="App">
-      <Body isdraweropen={isDrawerOpen} onClick={handleDrawer} sideBarPart1Items={sideBarPart1Items} />
+      <Body isdraweropen={isDrawerOpen} onClick={handleDrawer} sideBarItems={sideBarItems} />
     </div>
   );
 }

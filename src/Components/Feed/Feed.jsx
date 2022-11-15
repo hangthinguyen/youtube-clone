@@ -5,7 +5,7 @@ const Feed = () => {
   return (
     <Stack
       className='feed-container'
-      ml={{ sm: 72, md: 240 }}
+      flexGrow={{ sm: 1, md: 5}}
     >
       <Box>
         Feed

@@ -1,6 +1,6 @@
 import { Drawer, Box } from '@mui/material';
 import LeftNavBar from '../LeftNavBar/LeftNavBar';
-import SideBarMenu from '../SideBarMenu/SideBarMenu';
+import SideBarItems from '../SideBarItems/SideBarItems';
 import './MenuDrawer.css';
 
 const MenuDrawer = ({ onClick, isdraweropen }) => {
@@ -12,7 +12,8 @@ const MenuDrawer = ({ onClick, isdraweropen }) => {
     >
         <Box width='240px' textAlign='center'>
             <LeftNavBar onClick={onClick} />
-            <SideBarMenu />
+            <SideBarItems />
+            <div>hello</div>
         </Box>
     </Drawer>
   )
