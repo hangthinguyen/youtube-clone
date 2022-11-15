@@ -1,19 +1,18 @@
 import { Drawer, Box } from '@mui/material';
-import { useState } from 'react';
 import LeftNavBar from '../LeftNavBar/LeftNavBar';
+import SideBarMenu from '../SideBarMenu/SideBarMenu';
 import './MenuDrawer.css';
 
-const MenuDrawer = ({ isDraweropen, setDawerOpen}) => {
+const MenuDrawer = ({ isdraweropen }) => {
   return (
     <Drawer
       anchor='left'
       variant='temporary'
-      open={isDraweropen}
-      onClose={setDawerOpen}
+      open={isdraweropen}
     >
         <Box width='240px' textAlign='center'>
             <LeftNavBar />
-            Sliding Bar
+            <SideBarMenu />
         </Box>
     </Drawer>
   )

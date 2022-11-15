@@ -25,6 +25,102 @@ function App() {
       name: 'Home',
       link: 'https://www.youtube.com/'
     },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random() * 10000,
+      icon: <HomeIcon />,
+      name: 'Home',
+      link: 'https://www.youtube.com/'
+    },
   ])
 
   const handleDrawer = useCallback(() => {
