@@ -1,10 +1,12 @@
+import MainContent from '../MainContent/MainContent';
 import NavBar from '../NavBar/NavBar';
 import './Body.css';
 
-const Body = () => {
+const Body = ({ isdraweropen, onClick}) => {
   return (
     <div className='body'>
-        <NavBar />
+        <NavBar onClick={onClick} />
+        <MainContent isdraweropen={isdraweropen}/>
     </div>
   )
 }

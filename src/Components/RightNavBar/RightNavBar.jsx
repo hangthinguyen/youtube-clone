@@ -1,5 +1,5 @@
 import { HiOutlineDotsVertical } from 'react-icons/hi';
-import { HiOutlineUserCircle } from 'react-icons/hi2';
+import { BiUserCircle } from 'react-icons/bi'
 import './RightNavBar.css';
 
 const RightNavBar = () => {
@@ -7,7 +7,7 @@ const RightNavBar = () => {
     <div className='right-nav-bar'>
         <HiOutlineDotsVertical className='settings'/>
         <button className='sign-in-btn'>
-            <HiOutlineUserCircle className='user-icon'/>
+            <BiUserCircle className='user-icon'/>
             <h3 className='sign-in-text'>Sign In</h3>
         </button>
     </div>

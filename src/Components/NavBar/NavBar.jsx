@@ -3,10 +3,10 @@ import RightNavBar from '../RightNavBar/RightNavBar';
 import SearchNavBar from '../SearchNavBar/SearchNavBar';
 import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ onClick }) => {
   return (
     <div className='navbar'>
-        <LeftNavBar />
+        <LeftNavBar onClick={onClick} />
         <SearchNavBar />
         <RightNavBar />
     </div>
