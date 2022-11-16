@@ -2,7 +2,7 @@ import './MiniSideBar.css';
 
 const MiniSideBar = () => {
   return (
-    <div>MiniSideBar</div>
+    <div className='mini-side-bar'>MiniSideBar</div>
   )
 }
 
