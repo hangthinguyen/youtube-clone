@@ -7,7 +7,7 @@ import './SideBarMenu.css';
 const SideBarMenu = ({ isdraweropen, sideBarItems }) => {
   return (
     <Stack className='side-bar-menu-container'>
-        {window.innerWidth > 720 && !isdraweropen ? <SideBarItems sideBarItems={sideBarItems}/> : <MiniSideBar/> }
+        {window.innerWidth > 1200 && !isdraweropen ? <SideBarItems sideBarItems={sideBarItems}/> : <MiniSideBar/> }
     </Stack>
   )
 }

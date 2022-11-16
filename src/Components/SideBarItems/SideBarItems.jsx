@@ -3,7 +3,7 @@ import './SideBarItems.css';
 
 const SideBarItems = ({ sideBarItems }) => {
   return (
-    <div className='side-bar-each-section-wrapper'>
+    <div className='side-bar-wrapper'>
         {sideBarItems?.map((sideBarItem) =>
           <SideBarItem
             icon={sideBarItem.icon}
