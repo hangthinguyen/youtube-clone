@@ -1,8 +1,4 @@
 .side-bar-menu-container {
     display: flex;
     flex-direction: column;
-    position: relative;
-    /* top: 56px;
-    bottom: 0; */
-    overflow-y: auto;
 }

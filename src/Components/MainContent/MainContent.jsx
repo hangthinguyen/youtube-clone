@@ -6,7 +6,7 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
   return (
     <div className='main-content-container'>
         <SideBarMenu isdraweropen={isdraweropen} sideBarItems={sideBarItems} />
-        <Feed />
+        <Feed isdraweropen={isdraweropen} />
     </div>
   )
 }

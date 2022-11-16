@@ -2,4 +2,8 @@
     width: 240px;
     padding: 12px;
     box-sizing: border-box;
+    position: fixed;
+    overflow: auto;
+    top: 56px;
+    bottom: 0;
 }
