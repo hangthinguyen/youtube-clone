@@ -1,0 +1,15 @@
+.category-title {
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.category-container {
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}

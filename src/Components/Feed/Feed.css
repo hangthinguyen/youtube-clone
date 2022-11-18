@@ -1,0 +1,25 @@
+.categories-container {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    overflow-x: auto;
+    width: 1103px;
+    margin: 13px 0;
+}
+
+.categories-container::-webkit-scrollbar {
+    display: none;
+}
+
+.left-arrow-container {
+    background-color: rgba(255, 255, 255, 0.98);
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
