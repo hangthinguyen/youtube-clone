@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Stack , Box } from '@mui/material';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import SlidingBar from '../SlidingBar/SlidingBar';
 import VideosFeed from '../VideosFeed/VideosFeed';
 import './Feed.css';
+import classNames from 'classnames';
 
 const Feed = ({ isdraweropen }) => {
   const [categories] = useState([
@@ -85,6 +86,17 @@ const Feed = ({ isdraweropen }) => {
     },
   ])
 
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleOnScroll = useCallback((e) => {
+    if (window.innerWidth > 86.34) {
+      setScrolled(true)
+    }
+    else {
+      setScrolled(false)
+    }
+  }, [])
+
   return (
     <Stack
       className='feed-container'
@@ -93,8 +105,8 @@ const Feed = ({ isdraweropen }) => {
       }}
     >
       <Stack>
-        <Box className='categories-container'>
-          <Box className='left-arrow-container'>
+        <Box className='categories-container' onScroll={handleOnScroll}>
+          <Box className={classNames('left-arrow-container', {scrolled: scrolled})}>
             <FontAwesomeIcon icon={faChevronLeft} />
           </Box>
           {categories.map((category) =>

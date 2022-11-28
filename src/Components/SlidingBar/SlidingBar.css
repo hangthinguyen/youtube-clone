@@ -13,3 +13,8 @@
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
+
+.category-container:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
