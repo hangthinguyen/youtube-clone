@@ -84,9 +84,25 @@ const Feed = ({ isdraweropen }) => {
       catName: 'Action-adventure games',
       catLink: 'https://www.youtube.com/'
     },
+    {
+      id: Math.random()*1000,
+      catName: 'Basketball',
+      catLink: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random()*1000,
+      catName: 'Visual Arts',
+      catLink: 'https://www.youtube.com/'
+    },
+    {
+      id: Math.random()*1000,
+      catName: 'Calculus',
+      catLink: 'https://www.youtube.com/'
+    },
   ])
 
   const [scrolled, setScrolled] = useState(false);
+  const [isBackButton, setBackButton] = useState(false);
 
   const handleOnScroll = useCallback((e) => {
     if (window.innerWidth > 86.34) {
@@ -97,6 +113,20 @@ const Feed = ({ isdraweropen }) => {
     }
   }, [])
 
+  const handleBackButton = useCallback((e) => {
+    console.log(e)
+    if (e.clientX > 100) {
+      setBackButton()
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleBackButton)
+    return () => {
+      window.removeEventListener('scroll', handleBackButton)
+    }
+  }, [handleBackButton])
+
   return (
     <Stack
       className='feed-container'
@@ -105,9 +135,22 @@ const Feed = ({ isdraweropen }) => {
       }}
     >
       <Stack>
-        <Box className='categories-container' onScroll={handleOnScroll}>
-          <Box className={classNames('left-arrow-container', {scrolled: scrolled})}>
-            <FontAwesomeIcon icon={faChevronLeft} />
+        <Box
+          className='categories-container'
+          onScroll={handleOnScroll}
+        >
+          <Box
+            className={classNames('left-arrow-container', {scrolled: scrolled})}
+            style={{
+
+            }}
+          >
+              <Box
+                className='left-arrow-circle'
+                onClick={handleBackButton}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </Box>
           </Box>
           {categories.map((category) =>
             <SlidingBar
