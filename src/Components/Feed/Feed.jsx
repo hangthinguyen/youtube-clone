@@ -1,15 +1,31 @@
-import { useRef } from 'react';
+import { useRef, useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Stack , Box } from '@mui/material';
-import { useCallback, useState } from 'react';
 import SlidingBar from '../SlidingBar/SlidingBar';
 import VideosFeed from '../VideosFeed/VideosFeed';
 import './Feed.css';
 import classNames from 'classnames';
 
+// i want to show a caret when my horizontal list is scrolled
+
+// how do i know when my horizonal list is scrolled?
+  // javascript dom api allows u to get how many px from left the element is scrolled
+  // if scrollLeft > 0
+
+// how do i get/store this value?
+  // useRef to get
+  // useState to store
+
+// how do i update this value?
+ // set state on elemement scroll
+
+// how do i run code when an element scrolls?
+  // react onScroll listener with a useCallback function
+
 const Feed = ({ isdraweropen }) => {
   const slideNavMenu = useRef(null);
+
 
   const [categories] = useState([
     {
@@ -104,12 +120,13 @@ const Feed = ({ isdraweropen }) => {
     },
   ])
 
-  const [scrolled, setScrolled] = useState(false);
-  const [isLeftArrowVisible, settLeftArrowVisible] = useState(false);
+  const [slideMenuScrollLeft, setSlideMenuScrollLeft] = useState(0);
 
-  const handleOnScroll = () => {
-    setScrolled(true)
-  }
+
+  const handleOnScroll = useCallback(() => {
+    setSlideMenuScrollLeft(slideNavMenu.current.scrollLeft)
+    // setSlideMenuScrollLeft(document.querySelector('.categories-container').scrollLeft)
+  }, [])
 
   const handleBackButton = useCallback(() => {
     // const el = document.querySelector('.categories-container');
@@ -123,16 +140,9 @@ const Feed = ({ isdraweropen }) => {
       left: 0,
       behavior: 'smooth'
     });
-
-    if (el3.scrollLeft === 0) {
-      settLeftArrowVisible(false);
-    }
-    else {
-      settLeftArrowVisible(true);
-    }
-
-    console.log('scrooll',  el3.scrollLeft)
   }, [])
+
+  const isScrolledAwayFromLeft = slideMenuScrollLeft > 0;
 
   return (
     <Stack
@@ -148,10 +158,7 @@ const Feed = ({ isdraweropen }) => {
           ref={slideNavMenu}
         >
           <Box
-            className={classNames('left-arrow-container', {scrolled: scrolled})}
-            style={{
-              opacity: !isLeftArrowVisible ? '1' : '0'
-            }}
+            className={classNames('left-arrow-container', {scrolled: isScrolledAwayFromLeft})}
           >
               <Box
                 className='left-arrow-circle'
