@@ -105,6 +105,7 @@ const Feed = ({ isdraweropen }) => {
   ])
 
   const [scrolled, setScrolled] = useState(false);
+  const [isLeftArrowVisible, settLeftArrowVisible] = useState(false);
 
   const handleOnScroll = useCallback((e) => {
     if (window.innerWidth > 86.34) {
@@ -128,7 +129,14 @@ const Feed = ({ isdraweropen }) => {
       behavior: 'smooth'
     });
 
-    console.log('scrooll',  el3)
+    if (el3.scrollLeft === 0) {
+      settLeftArrowVisible(false);
+    }
+    else {
+      settLeftArrowVisible(true);
+    }
+
+    console.log('scrooll',  el3.scrollLeft)
   }, [])
 
   return (
@@ -146,6 +154,9 @@ const Feed = ({ isdraweropen }) => {
         >
           <Box
             className={classNames('left-arrow-container', {scrolled: scrolled})}
+            style={{
+              opacity: !isLeftArrowVisible ? '1' : '0'
+            }}
           >
               <Box
                 className='left-arrow-circle'
