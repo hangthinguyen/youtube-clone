@@ -1,13 +1,16 @@
+import { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Stack , Box } from '@mui/material';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import SlidingBar from '../SlidingBar/SlidingBar';
 import VideosFeed from '../VideosFeed/VideosFeed';
 import './Feed.css';
 import classNames from 'classnames';
 
 const Feed = ({ isdraweropen }) => {
+  const slideNavMenu = useRef(null);
+
   const [categories] = useState([
     {
       id: Math.random()*1000,
@@ -102,7 +105,6 @@ const Feed = ({ isdraweropen }) => {
   ])
 
   const [scrolled, setScrolled] = useState(false);
-  const [isBackButton, setBackButton] = useState(false);
 
   const handleOnScroll = useCallback((e) => {
     if (window.innerWidth > 86.34) {
@@ -113,19 +115,21 @@ const Feed = ({ isdraweropen }) => {
     }
   }, [])
 
-  const handleBackButton = useCallback((e) => {
-    console.log(e)
-    if (e.clientX > 100) {
-      setBackButton()
-    }
-  }, [])
+  const handleBackButton = useCallback(() => {
+    // const el = document.querySelector('.categories-container');
+    // const el2 = document.getElementsByClassName('categories-container');
+    const el3 = slideNavMenu.current;
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleBackButton)
-    return () => {
-      window.removeEventListener('scroll', handleBackButton)
-    }
-  }, [handleBackButton])
+    // console.log('el1', el)
+    // console.log('el2', el2)
+    // el3.scrollLeft -= 60
+    el3.scrollTo({
+      left: 0,
+      behavior: 'smooth'
+    });
+
+    console.log('scrooll',  el3)
+  }, [])
 
   return (
     <Stack
@@ -138,12 +142,10 @@ const Feed = ({ isdraweropen }) => {
         <Box
           className='categories-container'
           onScroll={handleOnScroll}
+          ref={slideNavMenu}
         >
           <Box
             className={classNames('left-arrow-container', {scrolled: scrolled})}
-            style={{
-
-            }}
           >
               <Box
                 className='left-arrow-circle'
