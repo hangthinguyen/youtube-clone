@@ -107,14 +107,9 @@ const Feed = ({ isdraweropen }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isLeftArrowVisible, settLeftArrowVisible] = useState(false);
 
-  const handleOnScroll = useCallback((e) => {
-    if (window.innerWidth > 86.34) {
-      setScrolled(true)
-    }
-    else {
-      setScrolled(false)
-    }
-  }, [])
+  const handleOnScroll = () => {
+    setScrolled(true)
+  }
 
   const handleBackButton = useCallback(() => {
     // const el = document.querySelector('.categories-container');
