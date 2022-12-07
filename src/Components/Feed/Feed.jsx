@@ -6,6 +6,9 @@ import SlidingBar from '../SlidingBar/SlidingBar';
 import VideosFeed from '../VideosFeed/VideosFeed';
 import './Feed.css';
 import classNames from 'classnames';
+import requests from '../../api/Requests';
+import youtubeAPI from '../../api/YoutubeAPI';
+import { useEffect } from 'react';
 
 // i want to show a caret when my horizontal list is scrolled
 
@@ -27,98 +30,7 @@ const Feed = ({ isdraweropen }) => {
   const slideNavMenu = useRef(null);
 
 
-  const [categories] = useState([
-    {
-      id: Math.random()*1000,
-      catName: 'All',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Computer programming',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Live',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Gaming',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Podcasts',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Colleges',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Sales',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Thoughts',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Nursing',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'K-pop',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Soundtracks',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Social Science',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Comedy',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Chill-out Music',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Action-adventure games',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Basketball',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Visual Arts',
-      catLink: 'https://www.youtube.com/'
-    },
-    {
-      id: Math.random()*1000,
-      catName: 'Calculus',
-      catLink: 'https://www.youtube.com/'
-    },
-  ])
+  const [categories, setCategories] = useState([])
 
   const [slideMenuScrollLeft, setSlideMenuScrollLeft] = useState(0);
 
@@ -143,6 +55,36 @@ const Feed = ({ isdraweropen }) => {
   }, [])
 
   const isScrolledAwayFromLeft = slideMenuScrollLeft > 0;
+
+  const fetchFromAPI = useCallback(async() => {
+    try {
+          const response = await youtubeAPI.get(requests.fetchVideoCategories);
+
+          const Vcategories = response.data.items
+
+          const itemsResult = [];
+
+          Vcategories.map((category) => {
+            itemsResult.push(
+              {
+                id: category.id,
+                channelId: category.snippet.channelId,
+                title: category.snippet.title
+              }
+            )
+            return itemsResult;
+          })
+
+          setCategories(itemsResult)
+
+        } catch (error) {
+          console.error(error);
+        }
+  }, [])
+
+  useEffect(() => {
+    fetchFromAPI();
+  }, [fetchFromAPI])
 
   return (
     <Stack
@@ -171,8 +113,7 @@ const Feed = ({ isdraweropen }) => {
             <SlidingBar
               id={category.id}
               key={category.id}
-              catName={category.catName}
-              catLink={category.catLink}
+              title={category.title}
             />)
           }
         </Box>

@@ -1,13 +1,13 @@
-import { Link, Box } from '@mui/material';
+import { Stack, Box } from '@mui/material';
 import './SlidingBar.css';
 
-const SlidingBar = ({ catName, catLink }) => {
+const SlidingBar = ({ title }) => {
   return (
-    <Box className='category-container'>
-        <Link href={catLink} className='category-title'>
-            {catName}
-        </Link>
-    </Box>
+    <Stack className='category-container'>
+        <Box className='category-title'>
+            {title}
+        </Box>
+    </Stack>
   )
 }
 
