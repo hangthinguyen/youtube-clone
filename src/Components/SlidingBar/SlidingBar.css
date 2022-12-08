@@ -1,9 +1,10 @@
 .category-title {
-    text-decoration: none !important;
-    color: black !important;
+    color: black;
     font-weight: 500;
     font-size: 14px;
     white-space: nowrap;
+    border: none;
+    background-color: transparent;
 }
 
 .category-container {
@@ -17,4 +18,8 @@
 .category-container:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.category-title:hover {
+    cursor: pointer;
 }

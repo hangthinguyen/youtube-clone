@@ -64,12 +64,12 @@ const Feed = ({ isdraweropen }) => {
 
           const itemsResult = [];
 
-          Vcategories.map((category) => {
+          Vcategories.map((Vcategory) => {
             itemsResult.push(
               {
-                id: category.id,
-                channelId: category.snippet.channelId,
-                title: category.snippet.title
+                id: Vcategory.id,
+                channelId: Vcategory.snippet.channelId,
+                title: Vcategory.snippet.title
               }
             )
             return itemsResult;
@@ -117,7 +117,6 @@ const Feed = ({ isdraweropen }) => {
             />)
           }
         </Box>
-        <VideosFeed />
       </Stack>
     </Stack>
   )

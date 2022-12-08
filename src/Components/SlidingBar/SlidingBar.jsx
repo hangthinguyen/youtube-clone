@@ -1,12 +1,18 @@
-import { Stack, Box } from '@mui/material';
+import { Stack } from '@mui/material';
+import VideosFeed from '../VideosFeed/VideosFeed';
 import './SlidingBar.css';
 
-const SlidingBar = ({ title }) => {
+const SlidingBar = ({ title, id }) => {
   return (
-    <Stack className='category-container'>
-        <Box className='category-title'>
+    <Stack>
+      <Stack className='category-container'>
+        <button
+          className='category-title'
+        >
             {title}
-        </Box>
+        </button>
+      </Stack>
+      <VideosFeed id={id}/>
     </Stack>
   )
 }
