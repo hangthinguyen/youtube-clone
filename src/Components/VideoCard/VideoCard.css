@@ -1,0 +1,9 @@
+.video-card-container {
+  width: 320px;
+  height: 180px;
+  background-color: antiquewhite;
+}
+
+.video-card-img {
+  width: 100%;
+}

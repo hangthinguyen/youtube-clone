@@ -3,12 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { Stack, Box } from "@mui/material";
 import SlidingBar from "../SlidingBar/SlidingBar";
-import VideosFeed from "../VideosFeed/VideosFeed";
 import "./CategoryTags.css";
 import classNames from "classnames";
-import requests from "../../api/Requests";
-import youtubeAPI from "../../api/YoutubeAPI";
-import { useEffect } from "react";
 
 // i want to show a caret when my horizontal list is scrolled
 
@@ -26,7 +22,7 @@ import { useEffect } from "react";
 // how do i run code when an element scrolls?
 // react onScroll listener with a useCallback function
 
-const CategoryTags = ({ categories, onChange }) => {
+const CategoryTags = ({ categories, onChange, selectedCategoryId }) => {
   const slideNavMenu = useRef(null);
 
   // const [categories, setCategories] = useState([]);

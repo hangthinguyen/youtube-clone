@@ -2,13 +2,14 @@ import { useCallback, useState, useEffect } from "react";
 import CategoryTags from "../CategoryTags/CategoryTags";
 import requests from "../../api/Requests";
 import youtubeAPI from "../../api/YoutubeAPI";
-import VideosFeed from "../VideosFeed/VideosFeed";
 // import SideBarMenu from "../SideBarMenu/SideBarMenu";
 import "./MainContent.css";
+import VideosFeed from "../VideosFeed/VideosFeed";
 
 const MainContent = ({ isdraweropen, sideBarItems }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [videos, setVideos] = useState([]);
 
   const fetchVideoCategories = useCallback(async () => {
     try {
@@ -41,7 +42,31 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
         },
       });
 
-      console.log(response);
+      const dataV = response.data.items;
+
+      const VideosByCatId = [];
+      // const CategoriesId = [];
+
+      dataV.map((video) => {
+        VideosByCatId.push({
+          catId: video.snippet.categoryId,
+          channelTitle: video.snippet.channelTitle,
+          vTitle: video.snippet.title,
+          thumbnail: video.snippet.thumbnails.medium.url,
+        });
+        return VideosByCatId;
+      });
+
+      // // dataV.map((video) => {
+      // //   console.log(video.snippet.categoryId);
+      // //   CategoriesId.push({
+      // //     catId: video.snippet.categoryId,
+      // //   });
+      // //   return CategoriesId;
+      // // });
+
+      // setSelectedCategoryId(CategoriesId);
+      setVideos(VideosByCatId);
     } catch (error) {
       console.error(error);
     }
@@ -53,11 +78,16 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
 
   useEffect(() => {
     fetchVideosByCategoryId(selectedCategoryId);
-  }, [selectedCategoryId, fetchVideosByCategoryId]);
+  }, [fetchVideosByCategoryId, selectedCategoryId]);
 
   return (
     <div className="main-content-container">
-      <CategoryTags categories={categories} onChange={setSelectedCategoryId} />
+      <CategoryTags
+        categories={categories}
+        onChange={setSelectedCategoryId}
+        selectedCategoryId={selectedCategoryId}
+      />
+      <VideosFeed videos={videos} />
     </div>
   );
 };

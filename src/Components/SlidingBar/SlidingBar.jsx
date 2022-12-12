@@ -1,5 +1,4 @@
 import { Stack } from "@mui/material";
-import VideosFeed from "../VideosFeed/VideosFeed";
 import "./SlidingBar.css";
 
 const SlidingBar = ({ title, id, onClick }) => {
