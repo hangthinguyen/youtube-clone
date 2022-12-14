@@ -11,6 +11,8 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [videos, setVideos] = useState([]);
 
+  //fetching video cateegories to contain the category id and category tittle
+
   const fetchVideoCategories = useCallback(async () => {
     try {
       const response = await youtubeAPI.get(requests.fetchVideoCategories);
@@ -34,6 +36,8 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
     }
   }, []);
 
+  //fetching videos in each category using category id
+
   const fetchVideosByCategoryId = useCallback(async (categoryId) => {
     try {
       const response = await youtubeAPI.get(requests.fetchVideos, {
@@ -45,10 +49,10 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
       const dataV = response.data.items;
 
       const VideosByCatId = [];
-      // const CategoriesId = [];
 
       dataV.map((video) => {
         VideosByCatId.push({
+          key: video.id,
           catId: video.snippet.categoryId,
           channelTitle: video.snippet.channelTitle,
           vTitle: video.snippet.title,
@@ -57,15 +61,6 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
         return VideosByCatId;
       });
 
-      // // dataV.map((video) => {
-      // //   console.log(video.snippet.categoryId);
-      // //   CategoriesId.push({
-      // //     catId: video.snippet.categoryId,
-      // //   });
-      // //   return CategoriesId;
-      // // });
-
-      // setSelectedCategoryId(CategoriesId);
       setVideos(VideosByCatId);
     } catch (error) {
       console.error(error);
@@ -82,11 +77,7 @@ const MainContent = ({ isdraweropen, sideBarItems }) => {
 
   return (
     <div className="main-content-container">
-      <CategoryTags
-        categories={categories}
-        onChange={setSelectedCategoryId}
-        selectedCategoryId={selectedCategoryId}
-      />
+      <CategoryTags categories={categories} onChange={setSelectedCategoryId} />
       <VideosFeed videos={videos} />
     </div>
   );

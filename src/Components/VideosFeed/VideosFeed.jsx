@@ -29,10 +29,11 @@ const VideosFeed = ({ videos }) => {
     <div className="videos-container">
       {videos?.map((video) => (
         <VideoCard
+          key={video.key}
           id={video.catId}
           channelTitle={video.channelTitle}
           vTitle={video.vTitle}
-          thumbsnail={video.thumbsnail}
+          thumbnail={video.thumbnail}
         />
       ))}
     </div>

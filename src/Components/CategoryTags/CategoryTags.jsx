@@ -22,7 +22,7 @@ import classNames from "classnames";
 // how do i run code when an element scrolls?
 // react onScroll listener with a useCallback function
 
-const CategoryTags = ({ categories, onChange, selectedCategoryId }) => {
+const CategoryTags = ({ categories, onChange }) => {
   const slideNavMenu = useRef(null);
 
   // const [categories, setCategories] = useState([]);
@@ -66,7 +66,7 @@ const CategoryTags = ({ categories, onChange, selectedCategoryId }) => {
             <FontAwesomeIcon icon={faChevronLeft} />
           </Box>
         </Box>
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <SlidingBar
             onClick={() => onChange(category.id)}
             id={category.id}
